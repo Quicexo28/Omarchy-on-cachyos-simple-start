@@ -105,6 +105,18 @@ chmod +x install-omarchy-on-cachyos.sh
 
 **Note:** Please review the script contents before running to understand what changes will be made to your system.
 
+### Optional: Jarvis desktop assistant
+
+After Omarchy is installed and you have logged into Hyprland at least once, you can install [Jarvis](https://github.com/quicexo28/jarvis-linux) — a voice/gesture desktop assistant (offline STT via faster-whisper, XTTS voice cloning, wake word, Claude CLI for responses) — as the PC assistant:
+
+```bash
+cd omarchy-on-cachyos/bin
+chmod +x install-jarvis.sh
+./install-jarvis.sh
+```
+
+This clones jarvis-linux to `~/jarvis-linux`, installs its dependencies (pacman, npm, Python venv), enables five systemd user services (`jarvis-backend`, `jarvis-stt`, `jarvis-tts`, `jarvis-wake`, `jarvis-ui`), and wires Hyprland window rules plus a `Ctrl+Alt+J` wake hotkey into `~/.config/hypr/hyprland.conf`. The UI runs as a Chromium app-mode window (Wayland-native via ozone). See the script output for the post-install checklist (Claude CLI login, speaker enrollment).
+
 ## 6. Statement of Lack of Warranty
 
 THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
