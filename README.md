@@ -1,5 +1,7 @@
 # omarchy-on-cachyos
 
+> **NOTE:** This setup has been consolidated into [jarvis-linux](https://github.com/quicexo28/jarvis-linux). For a fresh CachyOS install with Omarchy + the Jarvis assistant + Claude CLI in one script, clone that repo and run `./setup.sh` — it includes these installer scripts under `scripts/omarchy/`. This repo remains usable standalone for Omarchy-only installs.
+
 - UPDATE 20-May-2026: The install script now includes interactive version selection for choosing between Stable releases and Bleeding Edge.
 - UPDATE 1-October-2025: The install script has been updated to support Omarchy 3.0+ out of the box.
 
