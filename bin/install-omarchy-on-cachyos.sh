@@ -182,6 +182,16 @@ echo ""
 echo "Press Enter to begin the installation of Omarchy..."
 read -r
 
-# Run the modified install.sh script 
-chmod +x install.sh
-./install.sh
+# Run the modified install.sh script
+if [ -f "install.sh" ]; then
+    chmod +x install.sh
+    ./install.sh
+elif [ -f "install" ]; then
+    chmod +x install
+    ./install
+else
+    echo "Error: Could not find omarchy install script in $(pwd)."
+    echo "Contents of directory:"
+    ls -la
+    exit 1
+fi
