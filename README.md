@@ -91,10 +91,10 @@ Other configuration changes are up to you. Note, however, that this script has n
 
 ```bash
 # Clone the repository
-git clone https://github.com/mroboff/omarchy-on-cachyos.git
+git clone https://github.com/quicexo28/omarchy-on-cachyos-simple-start.git
 
 # Navigate to the project directory
-cd omarchy-on-cachyos/bin
+cd omarchy-on-cachyos-simple-start/bin
 
 # Make the script executable
 chmod +x install-omarchy-on-cachyos.sh
