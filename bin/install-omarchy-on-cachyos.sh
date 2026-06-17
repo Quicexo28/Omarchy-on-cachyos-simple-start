@@ -88,7 +88,7 @@ echo ""
 echo "Making adjustments to Omarchy install scripts to support CachyOS..."
 
 # Navigate to Omarchy install scripts
-cd "$OMARCHY_DIR"
+cd "$OMARCHY_DIR" || { echo "Error: Could not navigate to $OMARCHY_DIR. Check that omarchy was fetched correctly."; exit 1; }
 
 # Remove tldr installation to prevent conflict with tealdeer install.
 sed -i '/tldr/d' install/omarchy-base.packages
@@ -156,8 +156,8 @@ sed -i 's/omarchy-cmd-present mise && eval "\$(mise activate bash)"/if [ "\$SHEL
 
 # Copy omarchy installation files to ~/.local/share/omarchy
 mkdir -p ~/.local/share/omarchy
-cp -r . ~/.local/share/omarchy
-cd ~/.local/share/omarchy
+cp -r "$OMARCHY_DIR/." ~/.local/share/omarchy/
+cd ~/.local/share/omarchy || { echo "Error: Could not navigate to ~/.local/share/omarchy"; exit 1; }
 
 # Pause and prompt for acknowledgment to begin installation
 echo ""
