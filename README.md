@@ -1,5 +1,7 @@
 # omarchy-on-cachyos
 
+> **NOTE:** This setup has been consolidated into [jarvis-linux](https://github.com/quicexo28/jarvis-linux). For a fresh CachyOS install with Omarchy + the Jarvis assistant + Claude CLI in one script, clone that repo and run `./setup.sh` — it includes these installer scripts under `scripts/omarchy/`. This repo remains usable standalone for Omarchy-only installs.
+
 - UPDATE 20-May-2026: The install script now includes interactive version selection for choosing between Stable releases and Bleeding Edge.
 - UPDATE 1-October-2025: The install script has been updated to support Omarchy 3.0+ out of the box.
 
@@ -104,6 +106,18 @@ chmod +x install-omarchy-on-cachyos.sh
 ```
 
 **Note:** Please review the script contents before running to understand what changes will be made to your system.
+
+### Optional: Jarvis desktop assistant
+
+After Omarchy is installed and you have logged into Hyprland at least once, you can install [Jarvis](https://github.com/quicexo28/jarvis-linux) — a voice/gesture desktop assistant (offline STT via faster-whisper, XTTS voice cloning, wake word, Claude CLI for responses) — as the PC assistant:
+
+```bash
+cd omarchy-on-cachyos/bin
+chmod +x install-jarvis.sh
+./install-jarvis.sh
+```
+
+This clones jarvis-linux to `~/jarvis-linux`, installs its dependencies (pacman, npm, Python venv), enables five systemd user services (`jarvis-backend`, `jarvis-stt`, `jarvis-tts`, `jarvis-wake`, `jarvis-ui`), and wires Hyprland window rules plus a `Ctrl+Alt+J` wake hotkey into `~/.config/hypr/hyprland.conf`. The UI runs as a Chromium app-mode window (Wayland-native via ozone). See the script output for the post-install checklist (Claude CLI login, speaker enrollment).
 
 ## 6. Statement of Lack of Warranty
 
